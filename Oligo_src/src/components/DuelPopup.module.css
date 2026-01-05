@@ -1,0 +1,260 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: #dfe0ce;
+  padding: 24px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 2px solid #333;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 15px;
+}
+
+.header h2 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 2em;
+}
+
+.subtitle {
+  margin: 0;
+  color: #333;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.content {
+  color: #eeefde;
+}
+
+.instruction {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.playerList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.playerButton {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #333;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #eeefde;
+}
+
+.playerButton:hover:not(:disabled) {
+  background: #42a527;
+  border-color: #42a527;
+  transform: translateY(-2px);
+}
+
+.playerButton.selected {
+  background: rgba(255, 107, 53, 0.3);
+  border-color: #ff6b35;
+}
+
+.playerButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.playerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.playerName {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.playerMoney {
+  color: #4ecdc4;
+  font-size: 1em;
+}
+
+.noOpponents {
+  text-align: center;
+  padding: 30px;
+}
+
+.noOpponents p {
+  font-size: 1.2em;
+  color: #ff6b35;
+  margin-bottom: 20px;
+}
+
+.duelArena {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.duelist {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #333;
+}
+
+.duelist h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5em;
+}
+
+.diceLabel {
+  font-size: 0.9em;
+  color: #aa9100;
+  margin-bottom: 15px;
+}
+
+.vs {
+  font-size: 2em;
+  font-weight: bold;
+  color: #da4e1c;
+}
+
+.diceContainer {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.dice {
+  width: 60px;
+  height: 60px;
+  background: #eeefde;
+  border: 3px solid #333;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dice.singleDice {
+  width: 80px;
+  height: 80px;
+  font-size: 2.5em;
+}
+
+
+.total {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffd700;
+  margin-top: 10px;
+}
+
+.result {
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  padding: 20px;
+  background: rgba(255, 215, 0, 0.2);
+  border: 2px solid #ffd700;
+  
+  margin: 20px 0;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.duelButton {
+  padding: 15px 40px;
+  font-size: 1.3em;
+  font-weight: bold;
+  background: #ff6b35;
+  color: #eeefde;
+  border: none;
+  cursor: pointer;
+}
+
+.duelButton:hover:not(:disabled) {
+  transform: translateY(-3px);}
+
+.backButton,
+.closeButton {
+  padding: 12px 30px;
+  font-size: 1.1em;
+  background: #b50000;
+  color: #eeefde;
+  cursor: pointer;
+}
+
+
+.rollingText {
+  text-align: center;
+  font-size: 1.5em;
+  color: #c0a300;
+  margin-top: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

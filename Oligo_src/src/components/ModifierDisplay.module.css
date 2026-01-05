@@ -1,0 +1,107 @@
+.modifierContainer {
+  margin-top: 20px;
+  padding: 15px;
+  background: #eeefde;
+  border: 1px solid #333;
+}
+
+.modifierHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.modifierTitle {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+
+.modifierName {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.modifierDescription {
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.modifiersList {
+  display: grid;
+  gap: 8px;
+}
+
+.modifierItem {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 4px;
+  padding: 8px;
+  border-left: 3px solid;
+}
+
+.modifierItem.property {
+  border-left-color: #3b82f6;
+}
+
+.modifierItem.manufacturing {
+  border-left-color: #ef4444;
+}
+
+.modifierItem.bets {
+  border-left-color: #8b5cf6;
+}
+
+.modifierItem.bailout {
+  border-left-color: #10b981;
+}
+
+.modifierLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+}
+
+.modifierValue {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.property .modifierValue {
+  color: #3b82f6;
+}
+
+.manufacturing .modifierValue {
+  color: #ef4444;
+}
+
+.bets .modifierValue {
+  color: #8b5cf6;
+}
+
+.bailout .modifierValue {
+  color: #10b981;
+}
+
+.modifierDesc {
+  grid-column: 1 / -1;
+  font-size: 9px;
+  color: #333;
+  line-height: 1.3;
+}
+
+/* Events List */
+.eventsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

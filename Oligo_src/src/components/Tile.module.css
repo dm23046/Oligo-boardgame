@@ -1,0 +1,133 @@
+
+
+.tile {
+  position: absolute;
+  width: var(--tile-size, 60px);
+  height: var(--tile-size, 60px);
+  border: #333 solid 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-weight: 600;
+  /* Scale tile size proportionally with board */
+  transform-origin: top left;
+}
+
+.tile:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  z-index: 5;
+}
+
+.tile:focus {
+  outline: 2px solid #4facfe;
+  outline-offset: 2px;
+}
+
+
+.regularTile {
+  background: #eeefde;
+}
+
+.regularTile:hover {
+  background: #f5f5f5;
+}
+
+
+.startTile {
+  background: #ffe5e5;
+  border-color: #ff6b6b;
+}
+
+.startTile:hover {
+  background: #ffd5d5;
+}
+
+.jailTile {
+  background: #ffcccc;
+  border-color: #dc2626;
+}
+
+.jailTile:hover {
+  background: #ffb3b3;
+}
+
+
+.highlighted {
+  border-color: #f9ca24 !important;
+  border-width: 3px !important;
+}
+
+.freePickClickable {
+  border-color: rgba(176, 190, 47, 0.8) !important;
+  border-width: 3px !important;
+}
+
+.freePickClickable:hover {
+  border-color: rgba(176, 190, 47, 0.8) !important;
+  border-width: 3px !important;
+}
+
+.selectedForPick {
+  background: #dbeafe !important;
+  border-color: #3b82f6 !important;
+  border-width: 3px !important;
+}
+
+.pickButton {
+  position: absolute;
+  top: calc(var(--tile-size, 60px) * 0.033);
+  right: calc(var(--tile-size, 60px) * 0.033);
+  background: #22c55e;
+  color: #eeefde;
+  border: none;
+  padding: calc(var(--tile-size, 60px) * 0.017) calc(var(--tile-size, 60px) * 0.067);
+  font-size: calc(var(--tile-size, 60px) * 0.133);
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  min-width: calc(var(--tile-size, 60px) * 0.333);
+  height: calc(var(--tile-size, 60px) * 0.233);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pickButton:hover {
+  background: #16a34a;
+}
+
+
+
+.tileLabel {
+  font-size: calc(var(--tile-size, 60px) * 0.2);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1;
+  text-align: center;
+}
+
+.startTile .tileLabel {
+  font-size: calc(var(--tile-size, 60px) * 0.167);
+  font-weight: 700;
+  color: #eeefde;
+}
+
+
+@media (max-width: 768px) {
+  .tile {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .tileLabel {
+    font-size: 10px;
+  }
+  
+  .startTile .tileLabel {
+    font-size: 8px;
+  }
+}

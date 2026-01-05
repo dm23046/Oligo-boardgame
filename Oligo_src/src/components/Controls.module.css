@@ -1,0 +1,711 @@
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: #eeefde;
+  max-width: 400px;
+  min-width: 320px;
+  color:#333;
+  border:#333 solid 1px;
+}
+
+.controlsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  
+}
+
+.statusDot.setup {
+  background: #feca57;
+}
+
+.statusDot.playing {
+  background: #48cab2;
+}
+
+.statusDot.finished {
+  background: #54a0ff;
+}
+
+
+.statusText {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+}
+
+.controlsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+/* Setup screen */
+.setupSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color:#333;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+.playerCountSelector {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.playerButtons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.playerButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #333;
+  
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 50px;
+}
+
+.playerButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(254, 3, 3, 0.4);
+  transform: translateY(-2px);
+}
+
+.playerButton.selected {
+  background: #c0392b;
+  border-color: rgb(255, 255, 255);
+  color: #eeefde;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.playerIcon {
+  font-size: 16px;
+}
+
+/* Player Preview */
+.playerPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.previewTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.playerList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.playerPreviewItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  
+  font-size: 12px;
+  font-weight: 600;
+  border: #333 solid 1px;
+}
+
+
+.playerNumber {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  
+}
+
+.playerName {
+  font-weight: 500;
+}
+
+/* Start btn */
+.startButton {
+  padding: 16px 24px;
+  border: none;
+  
+  color: #eeefde;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.startButton.ready {
+  opacity: 1;
+  background: #08972a;
+}
+
+.startButton.ready:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px #08972a;
+}
+
+.startButton:disabled {
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Game */
+.gameSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gameStatus {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+}
+
+.currentPlayerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.currentPlayerTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.currentPlayerDisplay {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  
+  font-size: 16px;
+  font-weight: 600;
+  border: #333 solid 1px;
+}
+
+
+.gameStats {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color:#333;
+  font-weight: 500;
+}
+
+.statValue {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Game Actions */
+.gameActions {
+  display: flex;
+  gap: 10px;
+}
+
+.actionButton {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.actionButton.primary {
+  background: #00b894;
+  color: #eeefde;
+}
+
+
+.actionButton.secondary {
+  background: #fd79a8;
+  color: #eeefde;
+}
+
+
+.actionButton.disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.actionButton:disabled {
+  transform: none;
+}
+
+/* Reset Section */
+.resetSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resetButton {
+  padding: 12px 20px;
+  border: none;
+  
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: #333 solid 1px; 
+}
+
+.resetButton.warning {
+  background: #fdcb6e;
+  color: #eeefde;
+}
+
+
+/* Confirm reset */
+.confirmReset {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+  background: rgba(231, 76, 60, 0.1);
+  
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.confirmText {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  font-weight: 500;
+}
+
+.confirmActions {
+  display: flex;
+  gap: 8px;
+}
+
+.confirmButton {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: #333 solid 1px;
+}
+
+.confirmButton.danger {
+  background: #e74c3c;
+  color: #eeefde;
+}
+
+
+.confirmButton.cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: #333;
+  border: #333 solid 1px;
+}
+
+.confirmButton.cancel:hover {
+  background: rgba(6, 163, 129, 0.15);
+  transform: translateY(-1px);
+}
+
+.buttonIcon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+
+.loanSection {
+  margin-top: 1rem;
+  padding: 1rem;
+  
+}
+
+.loanTitle {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.loanSubtitle {
+  color: #d3a020;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.loanOptions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.loanButton {
+  padding: 0.5rem;
+  background: #f59e0b;
+  border: none;
+  
+  color: #eeefde;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.loanButton:hover:not(:disabled) {
+  box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+}
+
+.loanButton:disabled {
+  background: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loanAmount {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.loanDetails {
+  font-size: 0.65rem;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+.currentLoans {
+  padding-top: 0.75rem;
+}
+
+.loansTitle {
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.loanItem {
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem;
+  background: rgba(239, 68, 68, 0.1);
+  
+  margin-bottom: 0.3rem;
+  border-left: 3px solid #ef4444;
+  gap: 0.5rem;
+}
+
+.loanInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loanRemaining {
+  color: #ff0000;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.loanLaps {
+  color: #d10000;
+  font-size: 0.7rem;
+}
+
+.repaymentControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.installmentSelector {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.repaymentButton {
+  width: 24px;
+  height: 24px;
+  border: none;
+  
+  background: rgba(255, 255, 255, 0.521);
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.repaymentButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.repaymentButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.installmentAmount {
+  font-size: 0.7rem;
+  color: #333;
+  min-width: 80px;
+  text-align: center;
+}
+
+.confirmPayment {
+  width: 28px;
+  height: 28px;
+  border: none;
+  
+  background: #10b981;
+  color: #eeefde;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.confirmPayment:hover:not(:disabled) {
+  background: #059669;
+}
+
+.confirmPayment:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+}
+
+.confirmPayment.disabled {
+  background: #ef4444;
+}
+
+/* Responsive styles for laptops and desktops */
+@media (min-width: 1920px) {
+  .controlsContainer {
+    max-width: 450px;
+    min-width: 350px;
+    padding: 30px;
+    gap: 25px;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .controlsContainer {
+    max-width: 350px;
+    min-width: 240px;
+    padding: 18px;
+    gap: 15px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 16px;
+  }
+  
+  .label {
+    font-size: 13px;
+  }
+  
+  .playerButton {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .controlsContainer {
+    padding: 20px;
+    min-width: 280px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .playerButtons {
+    flex-wrap: wrap;
+  }
+  
+  .playerButton {
+    min-width: 45px;
+    padding: 10px 6px;
+  }
+  
+  .gameActions {
+    flex-direction: column;
+  }
+}
+
+
+@media (prefers-contrast: high) {
+  .controlsContainer {
+    background: #333;
+    border: 2px solid #eeefde;
+  }
+  
+  .title,
+  .sectionTitle,
+  .label {
+    color: #eeefde;
+  }
+  
+  .playerButton {
+    background: #333;
+    border: 2px solid #eeefde;
+    color: #eeefde;
+  }
+  
+  .playerButton.selected {
+    background: #eeefde;
+    color: #333;
+  }
+}
+
+.limitedByModifier {
+  opacity: 0.4;
+  background: rgba(239, 68, 68, 0.2) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  cursor: not-allowed !important;
+}
+
+.limitedByModifier:hover {
+  background: rgba(239, 68, 68, 0.2) !important;
+}
+
+.borrowingInfo {
+  margin-top: 8px;
+  padding: 8px;
+  background: #333;
+  
+  text-align: center;
+}
+
+.borrowingInfo small {
+  color: #dcdcdc;
+  font-size: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statusDot {
+    animation: none;
+  }
+  
+  .playerPreviewItem {
+    animation: none;
+  }
+  
+  .currentPlayerDisplay {
+    animation: none;
+  }
+  
+  * {
+    transition: none;
+  }
+}

@@ -1,0 +1,949 @@
+:root {
+  --player-0-color: #ff6b6b;
+  --player-1-color: #4ecdc4;
+  --player-2-color: #45b7d1;
+  --player-3-color: #f9ca24;
+  --player-4-color: #9b59b6;
+  --player-5-color: #fd79a8;
+}
+
+
+
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: #eeefde;
+}
+
+.gameContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.statusSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.statusTitle {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Responsive title sizing */
+@media (min-width: 1920px) {
+  .statusTitle {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .statusTitle {
+    font-size: 24px;
+  }
+}
+
+.statusTitle.playing {
+  color: #333;
+}
+
+.statusTitle.finished {
+  color: #333;
+}
+
+.turnIndicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: #333;
+}
+
+.turnDot {
+  width: 12px;
+  height: 12px;
+  
+}
+
+
+.turnText {
+  font-size: 14px;
+  color: #eeefde;
+  font-weight: 500;
+}
+
+.gameLayout {
+  display: grid;
+  grid-template-columns: 300px minmax(400px, 1fr) 300px;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  gap: 5px;
+}
+
+/* Large Desktops (1920px and above) */
+@media (min-width: 1920px) {
+  .gameLayout {
+    grid-template-columns: 320px minmax(600px, 1fr) 320px;
+    gap: 10px;
+  }
+}
+
+/* Standard Desktops (1440px - 1920px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .gameLayout {
+    grid-template-columns: 300px minmax(500px, 1fr) 300px;
+    gap: 8px;
+  }
+}
+
+/* Small Desktops / Large Laptops (1280px - 1440px) */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .gameLayout {
+    grid-template-columns: 260px minmax(450px, 1fr) 260px;
+    gap: 5px;
+  }
+}
+
+/* Standard Laptops (1024px - 1280px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .gameLayout {
+    grid-template-columns: 240px minmax(400px, 1fr) 240px;
+    gap: 5px;
+  }
+  
+  .sidePanel,
+  .propertyPanel {
+    font-size: 14px;
+  }
+  
+  .sidePanel {
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+  
+  .gameInfo {
+    padding: 12px;
+    gap: 15px;
+  }
+}
+
+.sidePanel {
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100vh;
+  height: 100vh;
+  min-width: fit-content;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.gameInfo {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+}
+
+
+.statusSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  text-align: left;
+}
+
+.statusTitle {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+
+.boardArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  min-width: 0;
+  z-index: 1;
+}
+
+.gameBoard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive board area padding */
+@media (min-width: 1920px) {
+  .boardArea {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .boardArea {
+    padding: 5px;
+  }
+}
+
+.playersSection {
+  background: #333;
+  padding: 15px;
+}
+
+/* Responsive players section */
+@media (min-width: 1920px) {
+  .playersSection {
+    padding: 20px;
+  }
+  
+  .playersTitle {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .playerItem {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .playerName {
+    font-size: 16px;
+  }
+  
+  .playerPosition {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .playersSection {
+    padding: 12px;
+  }
+  
+  .playersTitle {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .playerItem {
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .playerName {
+    font-size: 13px;
+  }
+  
+  .playerPosition {
+    font-size: 10px;
+  }
+  
+  .playerColor {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.playersTitle {
+  color: #eeefde;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.playersList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.playerItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.playerItem.activePlayer {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.playerItem.jailedPlayer {
+  background: rgba(220, 38, 38, 0.2);
+  border-color: rgba(220, 38, 38, 0.5);
+  opacity: 0.8;
+}
+
+.playerItem.jailedPlayer .playerName {
+  color: #fca5a5;
+}
+
+.jailIcon {
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.mafiaIcon {
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.chanceIcon {
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+@keyframes pulse {
+}
+
+.jailTurns {
+  font-size: 10px;
+  color: #fca5a5;
+  margin-left: 4px;
+  font-weight: 600;
+}
+
+.playerColor {
+  width: 16px;
+  height: 16px;
+  
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.playerName {
+  color: #eeefde;
+  font-weight: 600;
+  flex: 1;
+  font-size: 14px;
+}
+
+.playerPosition {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px 6px;
+  
+}
+
+.controlsSection {
+  margin-top: auto;
+  position: relative;
+}
+
+.gameOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+.victoryCard {
+  background: #333;
+  padding: 40px;
+  border: 1px solid #ddd;
+  max-width: 500px;
+  width: 90vw;
+  text-align: center;
+}
+
+
+.victoryHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.trophyIcon {
+  font-size: 60px;
+}
+
+
+.victoryTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+.winnerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.winnerDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+}
+
+
+.crownIcon {
+  font-size: 32px;
+}
+
+.winnerName {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.winnerTitle {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.gameStats {
+  background: #333;
+  padding: 20px;
+}
+
+.statsTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 15px 0;
+}
+
+.playerRankings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.playerRank {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  background: #333;
+}
+
+.playerRank.winner {
+  background: rgba(241, 196, 15, 0.2);
+}
+
+.rankNumber {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  min-width: 24px;
+  text-align: center;
+}
+
+.rankColor {
+  width: 16px;
+  height: 16px;
+}
+
+.rankName {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  flex: 1;
+  text-align: left;
+}
+
+.rankPosition {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.noWinnerText {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 500;
+}
+
+
+
+@media (max-width: 1200px) {
+  .gameLayout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .gameControls {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    min-width: auto;
+  }
+  
+  .diceSection,
+  .controlsSection {
+    flex: 1;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gameContainer {
+    padding: 10px;
+  }
+  
+  .gameHeader {
+    padding: 15px;
+  }
+  
+  .statusTitle {
+    font-size: 24px;
+  }
+  
+  .gameLayout {
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .gameControls {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .victoryCard {
+    padding: 25px;
+  }
+  
+  .victoryTitle {
+    font-size: 24px;
+  }
+  
+  .trophyIcon {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statusTitle {
+    font-size: 20px;
+  }
+  
+  .turnIndicator {
+    padding: 6px 12px;
+  }
+  
+  .turnText {
+    font-size: 12px;
+  }
+  
+  .victoryCard {
+    padding: 20px;
+  }
+  
+  .victoryTitle {
+    font-size: 20px;
+  }
+  
+  .winnerName {
+    font-size: 20px;
+  }
+  
+  .playerRank {
+    padding: 8px 12px;
+  }
+}
+
+
+@media (prefers-contrast: high) {
+  .gameContainer {
+    background: #333;
+  }
+  
+  .statusTitle {
+    color: #eeefde;
+    background: none;
+    -webkit-text-fill-color: #eeefde;
+  }
+  
+  .turnIndicator {
+    background: #333;
+    border: 2px solid #eeefde;
+  }
+  
+  .turnText {
+    color: #eeefde;
+  }
+  
+  .gameOverlay {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  .victoryCard {
+    background: #333;
+    border: 2px solid #eeefde;
+  }
+  
+  .victoryTitle,
+  .winnerName,
+  .winnerTitle,
+  .statsTitle,
+  .rankName,
+  .noWinnerText {
+    color: #eeefde;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .statusTitle.finished {
+    animation: none;
+  }
+  
+  .turnDot {
+    animation: none;
+  }
+  
+  .trophyIcon {
+    animation: none;
+  }
+  
+  .winnerDisplay {
+    animation: none;
+  }
+  
+  .gameOverlay {
+    animation: none;
+  }
+  
+  .victoryCard {
+    animation: none;
+  }
+}
+
+.diceContainer {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Responsive dice positioning */
+@media (min-width: 1920px) {
+  .diceContainer {
+    padding: 25px;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .diceContainer {
+    padding: 15px;
+    gap: 12px;
+    top: 38%;
+  }
+}
+
+
+.endTurnButton {
+  background: #036eda;
+  color: #eeefde;
+  border: 1px solid #333;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.endTurnButton:hover {
+  background: #0984e3;
+}
+
+.endTurnButton:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.propertyPanel {
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100vh;
+  height: 100vh;
+  min-width: 300px;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.propertyInfo {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+}
+
+.propertiesSection {
+  padding: 15px;
+}
+
+.propertyTitle {
+  color: #eeefde;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.propertyList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 5px;
+}
+
+.propertyItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background: #eeefde;
+  border: 1px solid #333;
+}
+
+.propertyItem:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.propertyName {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.propertyType {
+  color: #333;
+  font-size: 12px;
+}
+.propertyDescription {
+  color: #333;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.propertyPrices {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.propertyValue {
+  color: rgba(33, 223, 8, 0.7);
+  font-size: 12px;
+  padding: 3px 6px;
+  align-self: flex-start;
+  font-weight: 600;
+}
+.propertySale {
+  color: rgba(199, 11, 11, 0.7);
+  font-size: 12px;
+  padding: 3px 6px;
+  align-self: flex-start;
+  font-weight: 600;
+}
+.propertyPerLap {
+  color: rgba(87, 114, 231, 0.7);
+  font-size: 12px;
+  padding: 3px 6px;
+  align-self: flex-start;
+  font-weight: 600;
+}
+
+.propertyOwner {
+  color: #333;
+  font-size: 11px;
+  font-style: italic;
+}
+
+.propertyActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.trophyBadge {
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.lapsRemainingBadge {
+  font-size: 10px;
+  margin-left: 2px;
+  padding: 3px 8px;
+  background: #f39c12;
+  color: #eeefde;
+  font-weight: 600;
+  width: 25%;
+}
+
+.sellButton {
+  padding: 6px 12px;
+  background: #e74c3c;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sellButton:hover:not(.disabled) {
+  background: #c0392b;
+}
+
+.sellButton.disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: #333;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.sellButton.disabled:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sellButton.forcedSale {
+  background: #ff8c00;
+}
+
+.sellButton.forcedSale:hover:not(.disabled) {
+  background: #ff6b00;
+}
+
+@keyframes pulse {
+}
+
+/* Activate Button for Chance Cards */
+.activateButton {
+  padding: 6px 12px;
+  background: #9b59b6;
+  color: #eeefde;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.activateButton:hover:not(.disabled) {
+  background: #8e44ad;
+}
+
+.activateButton.disabled {
+  background: rgba(155, 89, 182, 0.3);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.activateButton.disabled:hover {
+  transform: none;
+  background: rgba(155, 89, 182, 0.3);
+}
+
+/* FreePick Mode Indicator */
+.freePickIndicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 24px;
+  z-index: 1000;
+}
+
+.freePickMessage {
+  text-align: center;
+  color: #eeefde;
+  max-width: 400px;
+}
+
+.freePickMessage h3 {
+  margin: 0 0 12px 0;
+  color: #22c55e;
+  font-size: 1.5rem;
+}
+
+.freePickMessage p {
+  margin: 0 0 16px 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.exitFreePickButton {
+  background: #6b7280;
+  color: #eeefde;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.exitFreePickButton:hover {
+  background: #4b5563;
+}

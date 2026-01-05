@@ -1,0 +1,364 @@
+
+
+.diceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.diceDisplay {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.die {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: #eeefde;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ddd;
+  cursor: pointer;
+  user-select: none;
+}
+
+.die:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dieInner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.dieFace {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #333;
+  border-radius: 50%;
+}
+
+/* Dice face */
+.face1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+.face2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  transform: rotate(45deg);
+}
+
+.face3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  transform: rotate(45deg);
+}
+
+.face4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  padding: 12px;
+}
+
+.face5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 8px;
+}
+
+.face5 .dot:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.face5 .dot:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.face5 .dot:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.face5 .dot:nth-child(4) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.face5 .dot:nth-child(5) {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.face6 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 4px;
+  padding: 8px;
+}
+
+.dieNumber {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #666;
+  background: rgba(255, 255, 255, 0.8);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.die.rolling {
+  animation: diceRollSpin 0.6s ease-in-out infinite;
+}
+
+.die.rolling .dieFace,
+.die.rolling .dieNumber {
+  opacity: 0.7;
+}
+
+@keyframes randomDots {
+  0% {
+    background-image: 
+      radial-gradient(circle at 25% 25%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 75%, #333 4px, transparent 4px);
+  }
+  16% {
+    background-image: 
+      radial-gradient(circle at 50% 50%, #333 4px, transparent 4px),
+      radial-gradient(circle at 25% 25%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 75%, #333 4px, transparent 4px);
+  }
+  33% {
+    background-image: 
+      radial-gradient(circle at 25% 25%, #333 4px, transparent 4px),
+      radial-gradient(circle at 25% 75%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 25%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 75%, #333 4px, transparent 4px);
+  }
+  50% {
+    background-image: 
+      radial-gradient(circle at 25% 25%, #333 4px, transparent 4px),
+      radial-gradient(circle at 25% 75%, #333 4px, transparent 4px),
+      radial-gradient(circle at 50% 50%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 25%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 75%, #333 4px, transparent 4px);
+  }
+  66% {
+    background-image: 
+      radial-gradient(circle at 25% 25%, #333 4px, transparent 4px),
+      radial-gradient(circle at 25% 50%, #333 4px, transparent 4px),
+      radial-gradient(circle at 25% 75%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 25%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 50%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 75%, #333 4px, transparent 4px);
+  }
+  83% {
+    background-image: 
+      radial-gradient(circle at 50% 50%, #333 4px, transparent 4px);
+  }
+  100% {
+    background-image: 
+      radial-gradient(circle at 50% 25%, #333 4px, transparent 4px),
+      radial-gradient(circle at 25% 50%, #333 4px, transparent 4px),
+      radial-gradient(circle at 75% 50%, #333 4px, transparent 4px);
+  }
+}
+
+@keyframes diceRollSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Roll btn */
+.rollButton {
+  padding: 15px 30px;
+  background: #fd3d3d;
+  border: #333 solid 1px;
+  color: #eeefde;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rollButton:hover:not(:disabled) {
+  background: #ff5252;
+}
+
+.rollButton:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+.rollButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.rollButton.rolling {
+  background: #f39c12;
+}
+
+
+.rollResult {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.448); 
+  border: #333 solid 1px;
+}
+
+
+/* Responsive dice sizing for laptops and desktops */
+@media (min-width: 1920px) {
+  .die {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .rollButton {
+    padding: 16px 36px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .die {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+  
+  .rollButton {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+  
+  .diceContainer {
+    padding: 15px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .diceContainer {
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .die {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .rollButton {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+
+@media (prefers-contrast: high) {
+  .die {
+    background: #eeefde;
+    border: 2px solid #333;
+  }
+  
+  .dot {
+    background: #333;
+  }
+  
+  .rollButton {
+    background: #333;
+    color: #eeefde;
+    border: 2px solid #eeefde;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .die.rolling {
+    animation: none;
+    opacity: 0.7;
+  }
+  
+  .rollButton.rolling {
+    animation: none;
+  }
+  
+  .die {
+    transition: none;
+  }
+  
+  .rollButton {
+    transition: none;
+  }
+}

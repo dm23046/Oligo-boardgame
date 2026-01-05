@@ -1,0 +1,32 @@
+
+
+.board {
+  position: relative;
+  width: var(--board-width, 800px);
+  height: var(--board-height, 800px);
+  max-width: min(800px, 100%);
+  max-height: min(800px, 100%);
+  margin: 0 auto;
+  background: #eeefde;
+  overflow: visible;
+  aspect-ratio: 1 / 1;
+  contain: layout;
+}
+
+.board::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .board {
+    width: 90vw;
+    height: calc(90vw * 1.17);
+    max-width: 500px;
+    max-height: 585px;
+  }
+}

@@ -1,0 +1,229 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+@keyframes fadeIn {
+}
+
+.jailPopup {
+  background: #333;
+  
+  max-width: 600px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+
+.header {
+  background: rgba(220, 38, 38, 0.3);
+  padding: 30px;
+  text-align: center;
+}
+
+.icon {
+  font-size: 64px;
+  margin-bottom: 15px;
+}
+
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #eeefde;
+  margin: 0;
+}
+
+.content {
+  padding: 30px;
+}
+
+.playerName {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #eeefde;
+  margin: 0 0 20px 0;
+}
+
+.statusInfo {
+  background: rgba(0, 0, 0, 0.3);
+  
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.infoText {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.infoText strong {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.divider {
+  height: 1px;
+  background: #eeefde;
+  margin: 25px 0;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.optionCard {
+  background: #333;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.optionCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.optionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #eeefde;
+  margin: 0;
+}
+
+.optionDescription {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0;
+  flex: 1;
+  line-height: 1.5;
+}
+
+.optionDescription small {
+  display: block;
+  margin-top: 8px;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.button {
+  padding: 12px 20px;
+  border: 1px solid #333;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.waitButton {
+  background: #6b7280;
+  color: #eeefde;
+}
+
+.waitButton:hover:not(:disabled) {
+  background: #4b5563;
+}
+
+.escapeButton {
+  background: #f59e0b;
+  color: #eeefde;
+}
+
+.escapeButton:hover:not(:disabled) {
+  background: #d97706;
+}
+
+.rollResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  
+}
+
+.diceDisplay {
+  font-size: 48px;
+  font-weight: 800;
+  padding: 15px 30px;
+}
+
+.diceDisplay.success {
+  color: #10b981;
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.diceDisplay.failure {
+  color: #ef4444;
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.resultText {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.warning {
+  color: #f87171;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .icon {
+    font-size: 48px;
+  }
+  
+  .playerName {
+    font-size: 20px;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+}

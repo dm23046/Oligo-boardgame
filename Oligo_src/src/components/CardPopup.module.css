@@ -1,0 +1,460 @@
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.cardContainer {
+  pointer-events: auto;
+}
+
+.cardFlip {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+  background: #eeefde;
+  
+  width: 600px;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+/* Responsive card sizing for different screens */
+@media (min-width: 1920px) {
+  .card {
+    width: 750px;
+    max-width: 85vw;
+  }
+  
+  .propertyTitle {
+    font-size: 1.8rem;
+  }
+  
+  .propertyDescription {
+    font-size: 1.2rem;
+  }
+  
+  .priceValue,
+  .priceSale {
+    font-size: 2.2rem;
+  }
+  
+  .cardHeader {
+    padding: 28px;
+  }
+  
+  .cardBody {
+    padding: 32px;
+  }
+  
+  .cardFooter {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .card {
+    width: 650px;
+    max-width: 85vw;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .card {
+    width: 500px;
+    max-width: 80vw;
+  }
+  
+  .propertyTitle {
+    font-size: 1.3rem;
+  }
+  
+  .cardHeader {
+    padding: 16px;
+  }
+  
+  .cardBody {
+    padding: 20px;
+  }
+  
+  .priceValue,
+  .priceSale {
+    font-size: 1.6rem;
+  }
+  
+  .actionButton {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+}
+
+.cardHeader {
+  position: relative;
+  padding: 20px;
+  color: #eeefde;
+  text-align: center;
+}
+
+
+.propertyTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cardBody {
+  padding: 24px;
+}
+
+.propertyDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.propertyDescription {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.propertyName {
+  color: #2065c5;
+  padding: 8px 16px;
+  
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.priceSection {
+  text-align: center;
+  padding: 16px;
+  gap: 8px;
+}
+
+.priceLabel {
+  display: block;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.priceValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #059669;
+  display: block;
+}
+
+.priceValueStrike {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-decoration: line-through;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.priceFormula {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6366f1;
+  display: block;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.discountLabel {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #7c3aed;
+  padding: 6px 12px;
+  display: inline-block;
+  margin-top: -2px;
+}
+
+
+.priceSale {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #f91616;
+  display: block;
+}
+
+.perLap {
+  font-size: 1rem;
+  color: #6a94e7;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.playerInfo {
+  padding: 16px;
+  
+  border: #333 solid 1px;
+  border-left: 4px solid #3b82f6;
+  border-right: 4px solid #3b82f6;
+}
+
+.playerMoney {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.moneyLabel {
+  font-weight: 600;
+  color: #374151;
+}
+
+.moneyValue {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.canAfford {
+  color: #059669;
+}
+
+.cantAfford {
+  color: #dc2626;
+}
+
+.insufficientFunds {
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px;
+  background: #fef2f2;
+  
+  border: 1px solid #fecaca;
+}
+
+.leisureRequirement {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  margin-top: 8px;
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  
+}
+
+.requirementIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.requirementText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #92400e;
+  line-height: 1.3;
+}
+
+.leisureInfo {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6366f1;
+  display: block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: #e0e7ff;
+  
+  text-align: center;
+}
+
+.cardFooter {
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.actionButton {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.buyButton {
+  background: #059669;
+  color: #eeefde;
+}
+
+
+.buyButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.passButton {
+  background: #794949;
+  color: #eeefde;
+}
+.buyButton:hover:not(:disabled),
+.passButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(107, 114, 128, 0.4);
+}
+
+.actionButton:active {
+  transform: translateY(0);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .card {
+    width: 280px;
+  }
+  
+  .propertyTitle {
+    font-size: 1.3rem;
+  }
+  
+  .priceValue {
+    font-size: 1.8rem;
+  }
+  
+  .cardFooter {
+    flex-direction: column;
+  }
+}
+
+.riskBetting {
+  background: rgba(26, 107, 19, 0.1);
+  border: 2px solid #1a6b13;
+  
+  padding: 16px;
+  margin-top: 12px;
+}
+
+.riskTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a6b13;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.riskInfo {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.riskInfo p {
+  margin: 0;
+}
+
+.betAmountSelector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.betAmountSelector label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.betAmountSelector input[type="range"] {
+  width: 100%;
+  height: 6px;
+  
+  background: #ddd;
+  outline: none;
+}
+
+.betInput {
+  display: block;
+  width: 30%;
+  margin: 0 auto;
+  padding: 8px;
+  border: 1px solid #ccc;
+  
+  font-size: 1rem;
+  text-align: center;
+}
+
+.betDisplay {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a6b13;
+}
+
+.rollResult {
+  margin-top: 12px;
+  padding: 12px;
+  
+  text-align: center;
+
+}
+
+
+.rollResult.success {
+  background: rgba(16, 185, 129, 0.2);
+  border: 2px solid #10b981;
+}
+
+.rollResult.failure {
+  background: rgba(239, 68, 68, 0.2);
+  border: 2px solid #ef4444;
+}
+
+.rollValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.resultText {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.rollResult.success .rollValue,
+.rollResult.success .resultText {
+  color: #10b981;
+}
+
+.rollResult.failure .rollValue,
+.rollResult.failure .resultText {
+  color: #ef4444;
+}
+
+.lapsWarning {
+  background: rgba(251, 191, 36, 0.2);
+  border: 2px solid #fbbf24;
+  
+  padding: 10px;
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: #92400e;
+  font-size: 0.9rem;
+}
+

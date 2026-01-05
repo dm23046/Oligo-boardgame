@@ -1,0 +1,31 @@
+{
+  "name": "oligo",
+  "version": "1.0.0",
+  "main": "App.jsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Oligo MVP",
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "vite": "^6.4.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@vitest/ui": "^2.1.8",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,171 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.bingoContainer {
+  background: #dfe0ce;
+  padding: 24px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 2px solid #333;
+}
+
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+.outcomesPreview {
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.previewTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px 0;
+}
+
+.outcomesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.outcomeItem {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: #cfd0c2;
+  border-left: 4px solid;
+}
+
+.outcomeRange {
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-width: 50px;
+  color: #333;
+}
+
+.outcomeInfo {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.outcomeTitle {
+  font-weight: bold;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.outcomeDesc {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.diceSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.diceResult {
+  margin-bottom: 20px;
+}
+
+.diceValue {
+  font-size: 4rem;
+  color: #333;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.outcomeResult {
+  background: rgba(255, 255, 255, 0.95);
+  
+  padding: 20px;
+  text-align: center;
+  border: 3px solid;
+  width: 100%;
+}
+
+.resultTitle {
+  font-size: 1.8rem;
+  margin: 0 0 10px 0;
+}
+
+.resultDescription {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.actionButton {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: #333 solid 1px;
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  transform: translateY(-2px);
+}
+
+.actionButton:active {
+  transform: translateY(0);
+}
+
+.actionButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.rollButton {
+  background: #ea2fff;
+  color: white;
+}
+
+.proceedButton {
+  background: #4facfe;
+  color: white;
+}

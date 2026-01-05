@@ -49,7 +49,7 @@ export const updatePlayer = (players, playerId, updateFn) => {
 export const updatePlayerMoney = (player, amount) => {
   return {
     ...player,
-    money: roundMoneyUp(player.money + amount)
+    money: Math.max(0, roundMoneyUp(player.money + amount))
   }
 }
 // update type
@@ -373,4 +373,5 @@ export const calculateBailoutAmount = (currentModifier, player, shortage) => {
     label: currentModifier.modifiers.bailout.label
   }
 }
+
 

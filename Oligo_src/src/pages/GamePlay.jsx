@@ -4,7 +4,6 @@ import Dice from '../components/Dice'
 import Controls from '../components/Controls'
 import MoneyAnimation from '../components/MoneyAnimation'
 import ModifierDisplay from '../components/ModifierDisplay'
-import EventDisplay from '../components/EventDisplay'
 import JailPopup from '../components/JailPopup'
 import BingoPopup from '../components/BingoPopup'
 import CasinoPopup from '../components/CasinoPopup'
@@ -617,5 +616,6 @@ const GamePlay = ({
     </div>
   )
 }
+
 
 export default GamePlay

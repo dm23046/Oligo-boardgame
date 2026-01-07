@@ -622,13 +622,16 @@ export const useGame = () => {
         
         const playerAfterStart = checkStartCrossing(oldPosition, newPosition, updatedPlayer, handleLoanRepayment, handlePropertyIncome, globalModifier)
         
-        checkTileDrawPool(
+        const drawnProperty = checkTileDrawPool(
           tileId, 
           updatedPlayer, 
           TILE_POSITIONS, 
-          updatedPlayers, 
-          awardProperty
+          updatedPlayers
         )
+        
+        if (drawnProperty) {
+          awardProperty(updatedPlayer.id, drawnProperty)
+        }
         
         // check for action tiles (like freePick)
         checkActionTile(tileId, updatedPlayer)
@@ -1424,5 +1427,6 @@ export const useGame = () => {
     setPlayerMoney: setPlayerMoneyDebug
   }
 }
+
 
 export default useGame

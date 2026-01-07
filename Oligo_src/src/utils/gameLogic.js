@@ -106,20 +106,19 @@ export const awardPropertyFromDrawPool = (drawPoolType, player, allPlayers) => {
   }
 }
 
-export const checkTileDrawPool = (tileId, player, tilePositions, allPlayers, onPropertyAwarded) => {
+export const checkTileDrawPool = (tileId, player, tilePositions, allPlayers) => {
   const tile = tilePositions.find(t => t.id === tileId)
   
   if (tile && tile.drawPool) {
     const awardedProperty = awardPropertyFromDrawPool(tile.drawPool, player, allPlayers)
 
-    if (awardedProperty && onPropertyAwarded) {
+    if (awardedProperty) {
       console.log(`${player.name} landed on ${tile.label}`)
-      onPropertyAwarded(player.id, awardedProperty)
-    } else if (!awardedProperty) {
+      return awardedProperty
+    } else {
       console.warn(`No ${tile.drawPool} properties left`)
+      return null
     }
-
-    return tile.drawPool
   }
   
   return null
@@ -373,5 +372,6 @@ export const calculateBailoutAmount = (currentModifier, player, shortage) => {
     label: currentModifier.modifiers.bailout.label
   }
 }
+
 
 
